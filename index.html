@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Zepto Range</title>
+    <meta name="viewport" content="width=600">
+    <link rel="stylesheet" href="styles.css">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,700" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="main">
+        <div class="wrapper">
+            <h1>Zepto Range</h1>
+            <p>Input range implementation to works with touch using Zepto.</p> 
+            <p><a href="//github.com/jcemer/zepto-range">github.com/jcemer/zepto-range</a></p>
+            
+            <div id="samples-01">
+                <input type="range" min="0" max="4" value="0">
+                <input type="range" class="inside" min="0" max="4" value="0">
+            </div>
+            
+            <div id="samples-02">
+                <input type="range" class="inside" min="0" max="6" value="0">
+            </div>
+            
+            <div id="samples-03">
+                <input type="range" min="-4" max="4" value="0">
+            </div>
+            
+            <div id="samples-04">
+                <h2>Events</h2>
+                <input type="range" class="inside" min="0" max="2" value="1">
+            </div>
+
+            <script src="zepto.js"></script>
+            <script src="zepto-range.js"></script>
+            <script>
+                $('#samples-01 input[type="range"]').range();
+                $('#samples-02 input[type="range"]').range('0', '3', '6');
+                $('#samples-03 input[type="range"]').range('worst', 'best');
+                
+                // SAMPLE 04
+                var sample04 = $('#samples-04 input[type="range"]');
+                sample04.on('change init', function (event, current, range) {
+                    var labels = range.legend.children();
+                    labels.removeClass('active');
+                    labels.eq(current).addClass('active');
+                });
+                sample04.range('worst', 'normal', 'best');
+            </script>
+        </div>
+    </div>
+</body>
+</html>
