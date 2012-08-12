@@ -13,8 +13,14 @@ Input range implementation to works with touch using Zepto
 $('input[type="range"]').range();
 $('input[type="range"]').range('worst', 'best');
 ```
+
+## Modes
+
+* `normal`
+* `inside`
+
 ## Events
 
-* Init
-* Move
-* Change
+* `init`
+* `move`
+* `change`
